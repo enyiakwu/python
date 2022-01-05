@@ -26,7 +26,7 @@ set -e
 source ~/docker-lib/virtualenv.sh
 pip3.6 install requests
 pip3.6 install "python-slugify"
-# <install other dependables>
+# <install other dependencies>
 ```
 
 #### python - virtual env_2
