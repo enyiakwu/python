@@ -60,5 +60,3 @@ else:
 print("output: " + comment)
 
 #print("RD_OUT_body=" + body)
-
-
