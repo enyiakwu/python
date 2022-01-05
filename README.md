@@ -4,22 +4,22 @@ python scripts - mostly automation scripts
 
 You can set your environment in various ways
 
-#### BASH
+#### bash
 ```
 #!/bin/bash
 ```
 
-#### PYTHON - locally on remote host
+#### python - locally on remote host
 ```
 #!/bin/python
 ```
 
-#### PYTHON3 - on remote host
+#### python3 - on remote host
 ```
 #!/bin/python3
 ```
 
-#### PYTHON - virtual env
+#### python - virtual env
 ```
 #!/bin/bash
 set -e
@@ -29,7 +29,7 @@ pip3.6 install "python-slugify"
 # <install other dependables>
 ```
 
-#### PYTHON - virtual env_2
+#### python - virtual env_2
 ```
 #!/bin/bash
 set -e
