@@ -1,5 +1,6 @@
 # THIS SCRIPT ADDS A USER OR COLLABORATOR (SINGLE OR AS A CSV LIST) TO A GITHUB REPOSITORY
 import requests, json
+import authfile
 from slugify import slugify
 
 
@@ -13,16 +14,12 @@ Add user to Repository
 #repo_name = "@option.repo_name@"
 #permission = "@option.permission@"
 
-login = "aenyinnaya"
-members_list = "jaynox4j, aenyinnaya"
-password = "2f93b2aede2ebb6768530b7010a20bc3730149fe"
-repo_name = "https://github.com/trilogy-group/adduser-test-repo"
-permission = "admin"
-
+# validate repo name input is lowercase
 repo_name_slug = repo_name.replace(" ", "-").lower() 
 slugify(repo_name, lowercase=True)
 members = members_list.split(',')
 
+# permission validation according to Github permission convention
 if permission == "admin":
     data = {
     "permission": "admin"
@@ -39,14 +36,14 @@ else:
 comment = ''
 
 # Validate for either repo URL or repository name alone
-if "trilogy-group/" in repo_name_slug:
-    repo_only= repo_name_slug.rpartition("trilogy-group/")[-1]
-    repo_get_url= "https://api.github.com/repos/trilogy-group/{0}".format(repo_only)
+if "company-group/" in repo_name_slug:
+    repo_only= repo_name_slug.rpartition("company-group/")[-1]
+    repo_get_url= "https://api.github.com/repos/company-group/{0}".format(repo_only)
     repo_name_slug= repo_get_url
     repo_add_member_url="{0}/collaborators/{1}"
 else:
-    repo_get_url="https://api.github.com/repos/trilogy-group/{0}".format(repo_name_slug)
-    repo_add_member_url="https://api.github.com/repos/trilogy-group/{0}/collaborators/{1}"
+    repo_get_url="https://api.github.com/repos/company-group/{0}".format(repo_name_slug)
+    repo_add_member_url="https://api.github.com/repos/company-group/{0}/collaborators/{1}"
 
 # check that repo exists or repo value entered is correct
 response = requests.get(repo_get_url, auth=(login, password))
